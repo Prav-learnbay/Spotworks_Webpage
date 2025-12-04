@@ -1,0 +1,94 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import aiIcon from "@assets/generated_images/icon_for_ai_and_automation_features.png";
+import qrIcon from "@assets/generated_images/icon_for_qr_code_checklists.png";
+import assetIcon from "@assets/generated_images/icon_for_asset_management.png";
+import { QrCode, BrainCircuit, Boxes, CalendarClock, Users, BarChart3 } from "lucide-react";
+
+const features = [
+  {
+    title: "AI & Automation",
+    description: "Bring intelligence to every aspect of facility management with automated workflows and predictive insights.",
+    icon: BrainCircuit,
+    image: aiIcon,
+    color: "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+  },
+  {
+    title: "QR Code Checklists",
+    description: "Streamline soft services with location-based QR scanning ensuring proof of presence and task completion.",
+    icon: QrCode,
+    image: qrIcon,
+    color: "bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400"
+  },
+  {
+    title: "Asset Management",
+    description: "Track resource lifecycle, location, and maintenance history in one centralized digital twin registry.",
+    icon: Boxes,
+    image: assetIcon,
+    color: "bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400"
+  },
+  {
+    title: "PPM Activities",
+    description: "Schedule and track Planned Preventive Maintenance to reduce downtime and extend asset lifespan.",
+    icon: CalendarClock,
+    image: null,
+    color: "bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400"
+  },
+  {
+    title: "Smart Attendance",
+    description: "Capture staff attendance seamlessly with geofencing and biometric integration options.",
+    icon: Users,
+    image: null,
+    color: "bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400"
+  },
+  {
+    title: "Decision Making",
+    description: "Real-time analytics dashboard empowering admins to make data-driven operational decisions.",
+    icon: BarChart3,
+    image: null,
+    color: "bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400"
+  }
+];
+
+export function Features() {
+  return (
+    <section id="features" className="py-24 bg-slate-50/50 dark:bg-slate-900/50">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Everything You Need to <span className="text-primary">Operate Seamlessly</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Spotworks consolidates fragmented facility management tools into one cohesive, intelligent platform.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <Card key={index} className="border-none shadow-lg shadow-slate-200/50 dark:shadow-none hover:shadow-xl transition-all duration-300 group overflow-hidden">
+              <CardHeader>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${feature.color}`}>
+                  <feature.icon className="w-6 h-6" />
+                </div>
+                <CardTitle className="font-heading text-xl">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base leading-relaxed">
+                  {feature.description}
+                </CardDescription>
+                {feature.image && (
+                  <div className="mt-6 rounded-lg overflow-hidden border border-slate-100 dark:border-slate-800">
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title} 
+                      className="w-full h-32 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
