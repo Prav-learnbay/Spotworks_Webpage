@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-import dashboard1 from "@assets/Dashboard_1_1764862219140.png";
-import dashboard2 from "@assets/Dashboard_2_1764862219143.png";
+import dashboard1 from "@assets/Dashboard_1_1764862596336.png";
+import dashboard2 from "@assets/Dashboard_2_1764862596340.png";
 import bgImage from "@assets/generated_images/modern_luxury_residential_apartment_complex_in_bangalore_with_lush_greenery_and_skyline.png";
 
 export function Hero() {
@@ -55,63 +55,71 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Hero Image/Data Composition */}
-          <div className="lg:w-1/2 relative">
-             {/* Base Image: Bangalore Apartment */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 dark:border-slate-800 bg-slate-900/5 dark:bg-white/5 backdrop-blur-sm group aspect-[4/3]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <img 
+          {/* Right Side Visuals */}
+          <div className="lg:w-1/2 relative flex justify-center items-center">
+            
+            {/* Background Context Image - Faded & Blurred */}
+            <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-40 blur-sm border border-slate-200 dark:border-slate-800">
+               <img 
                 src={bgImage} 
-                alt="Modern Residential Complex in Bangalore" 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                alt="Bangalore Context" 
+                className="w-full h-full object-cover"
               />
-              {/* Overlay Darkener for better contrast if needed */}
-              <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply" />
             </div>
 
-            {/* Dashboard 1 Overlay */}
+            {/* Unified Dashboard Window */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="absolute -bottom-10 -left-10 w-[70%] z-20 rounded-xl overflow-hidden shadow-2xl border border-white/40 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 dark:border-slate-700"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative z-20 w-[95%] max-h-[600px] overflow-y-auto rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 flex flex-col no-scrollbar"
             >
-              <img 
-                src={dashboard1} 
-                alt="Spotworks Dashboard Data" 
-                className="w-full h-auto"
-              />
-            </motion.div>
+              {/* Window Header */}
+              <div className="sticky top-0 z-30 flex items-center gap-2 px-4 py-3 bg-slate-100/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-amber-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="ml-4 px-3 py-1 rounded-md bg-white/50 dark:bg-black/20 text-xs font-medium text-muted-foreground flex-1 text-center">
+                  spotworks-dashboard.app
+                </div>
+              </div>
 
-            {/* Dashboard 2 Overlay */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="absolute -top-10 -right-6 w-[45%] z-30 rounded-xl overflow-hidden shadow-xl border border-white/40 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 dark:border-slate-700"
-            >
-              <img 
-                src={dashboard2} 
-                alt="Spotworks Analytics Data" 
-                className="w-full h-auto"
-              />
+              {/* Stitched Content */}
+              <div className="flex flex-col">
+                <img 
+                  src={dashboard1} 
+                  alt="Spotworks Operations Dashboard" 
+                  className="w-full h-auto object-cover border-b border-slate-100 dark:border-slate-800"
+                />
+                <img 
+                  src={dashboard2} 
+                  alt="Spotworks Utilities Dashboard" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
             </motion.div>
             
-            {/* Floating Pill Decoration */}
+            {/* Floating Badge */}
             <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="absolute bottom-10 -right-10 p-4 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 flex items-center gap-3 max-w-[200px] z-40"
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="absolute -right-4 bottom-20 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 z-30"
             >
-              <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground">Efficiency</p>
-                <p className="text-sm font-bold text-foreground">+24% Saved</p>
+              <div className="flex items-center gap-3">
+                <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">System Status</p>
+                  <p className="font-bold text-foreground">All Systems Optimal</p>
+                </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </div>
