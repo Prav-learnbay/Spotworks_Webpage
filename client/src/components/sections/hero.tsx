@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-import dashboard1 from "@assets/Dashboard_1_1764862596336.png";
-import dashboard2 from "@assets/Dashboard_2_1764862596340.png";
+import dashboardImage from "@assets/dashboard.png";
 import bgImage from "@assets/generated_images/modern_luxury_residential_apartment_complex_in_bangalore_with_lush_greenery_and_skyline.png";
 
 export function Hero() {
@@ -55,12 +54,12 @@ export function Hero() {
           </div>
 
           {/* Right: Embedded Dashboard Widget */}
-          <div className="relative lg:h-[600px] flex items-end justify-end">
+          <div className="relative lg:h-[600px] flex items-center justify-end">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full max-w-[650px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-[1400px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Glass Header */}
               <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center bg-white/5">
@@ -75,51 +74,14 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Composite Dashboard View */}
-              <div className="p-2 grid grid-cols-2 gap-2 bg-slate-950/50">
-                {/* Top Left: Power Stats (Cropped from Dashboard 1) */}
-                <div className="col-span-1 bg-white rounded-lg overflow-hidden h-[200px] relative group">
-                  <div className="absolute inset-0 bg-transparent z-10 hover:bg-black/5 transition-colors"></div>
-                   {/* CSS Crop to show Power Chart */}
+              {/* Combined Dashboard View */}
+              <div className="p-4 bg-slate-950/50">
+                <div className="bg-white rounded-lg overflow-hidden shadow-xl">
                   <img 
-                    src={dashboard1} 
-                    alt="Power Management" 
-                    className="absolute w-[180%] max-w-none top-[-10%] left-[-70%]"
+                    src={dashboardImage} 
+                    alt="Facility Overview Dashboard" 
+                    className="w-full h-auto object-contain"
                   />
-                  <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/70 text-white text-[10px] rounded backdrop-blur-sm z-20">Power Consumption</div>
-                </div>
-
-                {/* Top Right: Water Level (Cropped from Dashboard 2) */}
-                <div className="col-span-1 bg-white rounded-lg overflow-hidden h-[200px] relative">
-                   {/* CSS Crop to show Water Chart */}
-                  <img 
-                    src={dashboard2} 
-                    alt="Water Management" 
-                    className="absolute w-[180%] max-w-none top-[-15%] left-[-5%]"
-                  />
-                  <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/70 text-white text-[10px] rounded backdrop-blur-sm z-20">Water Levels</div>
-                </div>
-
-                {/* Bottom: Combined Stats Row */}
-                <div className="col-span-2 bg-white rounded-lg overflow-hidden h-[140px] relative flex">
-                  <div className="w-1/2 relative overflow-hidden border-r border-slate-100">
-                     {/* CSS Crop to show Services */}
-                    <img 
-                      src={dashboard1} 
-                      alt="Service Status" 
-                      className="absolute w-[160%] max-w-none top-[-30%] left-[-5%]"
-                    />
-                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/70 text-white text-[10px] rounded backdrop-blur-sm z-20">Service Efficiency</div>
-                  </div>
-                  <div className="w-1/2 relative overflow-hidden">
-                     {/* CSS Crop to show Asset Summary */}
-                    <img 
-                      src={dashboard2} 
-                      alt="Asset Summary" 
-                      className="absolute w-[180%] max-w-none top-[-12%] left-[-35%]"
-                    />
-                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/70 text-white text-[10px] rounded backdrop-blur-sm z-20">Asset Health</div>
-                  </div>
                 </div>
               </div>
             </motion.div>

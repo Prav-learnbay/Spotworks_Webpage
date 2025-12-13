@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Building2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
+import { SpotWorksLogo } from "./logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,9 +26,8 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 font-heading font-bold text-2xl text-primary tracking-tight">
-              <Building2 className="h-8 w-8" />
-              <span>Spotworks</span>
+            <a className="flex items-center hover:opacity-80 transition-opacity duration-200">
+              <SpotWorksLogo className="h-12 md:h-14 w-auto max-w-[180px] md:max-w-[220px]" />
             </a>
           </Link>
 
@@ -38,6 +38,12 @@ export function Navbar() {
             </a>
             <a href="#solutions" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               Solutions
+            </a>
+            <a href="#benefits" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              Benefits
+            </a>
+            <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              Pricing
             </a>
             <a href="#about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               About
@@ -73,6 +79,20 @@ export function Navbar() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Solutions
+          </a>
+          <a 
+            href="#benefits" 
+            className="text-base font-medium p-2 hover:bg-muted rounded-md"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Benefits
+          </a>
+          <a 
+            href="#pricing" 
+            className="text-base font-medium p-2 hover:bg-muted rounded-md"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Pricing
           </a>
           <a 
             href="#about" 

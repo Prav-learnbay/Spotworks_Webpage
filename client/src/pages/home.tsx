@@ -2,6 +2,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Features } from "@/components/sections/features";
 import { Solutions } from "@/components/sections/solutions";
+import { Benefits } from "@/components/sections/benefits";
+import { Pricing } from "@/components/sections/pricing";
 import { About } from "@/components/sections/about";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/layout/footer";
@@ -12,9 +14,11 @@ export default function Home() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <About />
         <Features />
         <Solutions />
-        <About />
+        <Benefits />
+        <Pricing />
         <CTA />
       </main>
       <Footer />

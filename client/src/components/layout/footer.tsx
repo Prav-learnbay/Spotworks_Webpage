@@ -1,4 +1,5 @@
-import { Building2, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { SpotWorksLogo } from "./logo";
 
 export function Footer() {
   return (
@@ -7,9 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 font-heading font-bold text-2xl text-primary mb-4">
-              <Building2 className="h-6 w-6" />
-              <span>Spotworks</span>
+            <div className="mb-4">
+              <SpotWorksLogo className="h-10 md:h-12 w-auto max-w-[160px] md:max-w-[200px]" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Empowering building managers with AI-driven insights and seamless automation for smarter, more efficient facilities.
@@ -69,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Spotworks Inc. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SpotWorks Inc. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary">Privacy Policy</a>
             <a href="#" className="hover:text-primary">Terms of Service</a>

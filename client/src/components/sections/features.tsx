@@ -1,18 +1,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import aiIcon from "@assets/generated_images/icon_for_ai_and_automation_features.png";
 import qrIcon from "@assets/generated_images/icon_for_qr_code_checklists.png";
-import assetIcon from "@assets/generated_images/icon_for_asset_management.png";
+import assetIcon from "@assets/generated_images/AssetManagement.png";
+import attendanceImage from "@assets/generated_images/attendance_checking_system.png";
+import ppmImage from "@assets/generated_images/ppm_planner.png";
+import decisionImage from "@assets/generated_images/decision_making_alerts.png";
 import { QrCode, BrainCircuit, Boxes, CalendarClock, Users, BarChart3, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "AI & Automation",
-    description: "Bring intelligence to every aspect of facility management with automated workflows and predictive insights.",
+    title: "Decision Making",
+    description: "Real-time alerts and monitoring for attendance, water quality, power consumption, and facility parameters to enable data-driven decisions.",
+    icon: BarChart3,
+    image: decisionImage,
+    color: "bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400",
+    span: "md:col-span-1"
+  },
+  {
+    title: "AI Agent interaction",
+    description: "AI agent whatsapp interface with stakeholders - clients, Facility team and vendors to enhance collaboration and share realtime information.",
     icon: BrainCircuit,
     image: aiIcon,
     color: "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400",
-    span: "md:col-span-2"
+    span: "md:col-span-1"
+  },
+  {
+    title: "Smart Attendance",
+    description: "Capture staff attendance seamlessly with geofencing and biometric integration options for accurate time tracking.",
+    icon: Users,
+    image: attendanceImage,
+    color: "bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400",
+    span: "md:col-span-1"
   },
   {
     title: "QR Code Checklists",
@@ -23,36 +42,20 @@ const features = [
     span: "md:col-span-1"
   },
   {
+    title: "PPM planner",
+    description: "Schedule and track Planned Preventive Maintenance to reduce downtime and extend asset lifespan.",
+    icon: CalendarClock,
+    image: ppmImage,
+    color: "bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400",
+    span: "md:col-span-1"
+  },
+  {
     title: "Asset Management",
     description: "Track resource lifecycle, location, and maintenance history in one centralized digital twin registry.",
     icon: Boxes,
     image: assetIcon,
     color: "bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400",
     span: "md:col-span-1"
-  },
-  {
-    title: "PPM Activities",
-    description: "Schedule and track Planned Preventive Maintenance to reduce downtime and extend asset lifespan.",
-    icon: CalendarClock,
-    image: null,
-    color: "bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400",
-    span: "md:col-span-1"
-  },
-  {
-    title: "Smart Attendance",
-    description: "Capture staff attendance seamlessly with geofencing and biometric integration options.",
-    icon: Users,
-    image: null,
-    color: "bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400",
-    span: "md:col-span-1"
-  },
-  {
-    title: "Decision Making",
-    description: "Real-time analytics dashboard empowering admins to make data-driven operational decisions.",
-    icon: BarChart3,
-    image: null,
-    color: "bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400",
-    span: "md:col-span-3"
   }
 ];
 

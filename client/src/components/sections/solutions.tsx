@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Building, Factory, Home, ArrowRight } from "lucide-react";
+import { Building, Factory, Home, ArrowRight, Hotel } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import gatedCommunityImage from "@assets/generated_images/gated_community.png";
 
 export function Solutions() {
   return (
@@ -20,16 +21,8 @@ export function Solutions() {
           </Button>
         </div>
 
-        <Tabs defaultValue="corporate" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-slate-100/50 dark:bg-slate-800/50 rounded-xl mb-12">
-            <TabsTrigger 
-              value="corporate" 
-              className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm py-4 rounded-lg gap-2 text-base"
-            >
-              <Building className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="hidden sm:inline">Corporate Offices</span>
-              <span className="sm:hidden">Offices</span>
-            </TabsTrigger>
+        <Tabs defaultValue="residential" className="w-full">
+          <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-slate-100/50 dark:bg-slate-800/50 rounded-xl mb-12">
             <TabsTrigger 
               value="residential" 
               className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm py-4 rounded-lg gap-2 text-base"
@@ -39,6 +32,14 @@ export function Solutions() {
               <span className="sm:hidden">Residential</span>
             </TabsTrigger>
             <TabsTrigger 
+              value="corporate" 
+              className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm py-4 rounded-lg gap-2 text-base"
+            >
+              <Building className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">Corporate Offices</span>
+              <span className="sm:hidden">Offices</span>
+            </TabsTrigger>
+            <TabsTrigger 
               value="industrial" 
               className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm py-4 rounded-lg gap-2 text-base"
             >
@@ -46,9 +47,68 @@ export function Solutions() {
               <span className="hidden sm:inline">Industrial Facilities</span>
               <span className="sm:hidden">Industrial</span>
             </TabsTrigger>
+            <TabsTrigger 
+              value="hospitality" 
+              className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm py-4 rounded-lg gap-2 text-base"
+            >
+              <Hotel className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">Hospitality</span>
+              <span className="sm:hidden">Hospitality</span>
+            </TabsTrigger>
           </TabsList>
 
           <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-100 dark:border-slate-800 p-8 md:p-12">
+            <TabsContent value="residential" className="mt-0">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">Common Area upkeep</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
+                      </div>
+                      <p className="text-muted-foreground">Employee attendance tracking.</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
+                      </div>
+                      <p className="text-muted-foreground">Power & Water consumption monitoring</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
+                      </div>
+                      <p className="text-muted-foreground">Resident complaints management</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
+                      </div>
+                      <p className="text-muted-foreground">Adherence to checklist - QR based tracking for Housekeeping, Gardening and Asset management.</p>
+                    </li>
+                  </ul>
+                  <Button className="mt-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground">Explore Residential Solutions</Button>
+                </div>
+                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-teal-100 to-emerald-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
+                  <img 
+                    src={gatedCommunityImage} 
+                    alt="Gated Community" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium">Resident Satisfaction</span>
+                      <span className="text-teal-600 text-sm font-bold">4.8/5.0</span>
+                    </div>
+                    <div className="flex gap-1">
+                      {[1,2,3,4,5].map(i => <div key={i} className="h-2 w-full bg-teal-500 rounded-full opacity-100 last:opacity-40"></div>)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+            
             <TabsContent value="corporate" className="mt-0">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
@@ -92,49 +152,6 @@ export function Solutions() {
                 </div>
               </div>
             </TabsContent>
-            
-            <TabsContent value="residential" className="mt-0">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">Elevated Living Experiences</h3>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                      </div>
-                      <p className="text-muted-foreground">Digital community notices and resident communication apps.</p>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                      </div>
-                      <p className="text-muted-foreground">Efficient handling of maintenance requests and ticket tracking.</p>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center mt-0.5 shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                      </div>
-                      <p className="text-muted-foreground">Smart parcel locker integrations and amenity booking.</p>
-                    </li>
-                  </ul>
-                  <Button className="mt-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground">Explore Residential Solutions</Button>
-                </div>
-                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-teal-100 to-emerald-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
-                   <div className="absolute inset-0 flex items-center justify-center text-slate-300">
-                    <Home className="w-32 h-32 opacity-20" />
-                  </div>
-                   <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium">Resident Satisfaction</span>
-                      <span className="text-teal-600 text-sm font-bold">4.8/5.0</span>
-                    </div>
-                    <div className="flex gap-1">
-                      {[1,2,3,4,5].map(i => <div key={i} className="h-2 w-full bg-teal-500 rounded-full opacity-100 last:opacity-40"></div>)}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
 
             <TabsContent value="industrial" className="mt-0">
               <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -173,6 +190,49 @@ export function Solutions() {
                     </div>
                      <div className="w-full bg-slate-200 rounded-full h-2">
                       <div className="bg-orange-500 h-2 rounded-full w-[85%]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="hospitality" className="mt-0">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">Exceptional Guest Experiences</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-purple-500" />
+                      </div>
+                      <p className="text-muted-foreground">Streamlined housekeeping schedules and room status tracking.</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-purple-500" />
+                      </div>
+                      <p className="text-muted-foreground">Maintenance request management for guest rooms and common areas.</p>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center mt-0.5 shrink-0">
+                        <div className="w-2 h-2 rounded-full bg-purple-500" />
+                      </div>
+                      <p className="text-muted-foreground">Energy optimization and facility monitoring for optimal guest comfort.</p>
+                    </li>
+                  </ul>
+                  <Button className="mt-4 bg-purple-600 hover:bg-purple-700">Explore Hospitality Solutions</Button>
+                </div>
+                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-purple-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
+                   <div className="absolute inset-0 flex items-center justify-center text-slate-300">
+                    <Hotel className="w-32 h-32 opacity-20" />
+                  </div>
+                   <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium">Guest Satisfaction</span>
+                      <span className="text-purple-600 text-sm font-bold">4.9/5.0</span>
+                    </div>
+                    <div className="flex gap-1">
+                      {[1,2,3,4,5].map(i => <div key={i} className="h-2 w-full bg-purple-500 rounded-full opacity-100 last:opacity-40"></div>)}
                     </div>
                   </div>
                 </div>
