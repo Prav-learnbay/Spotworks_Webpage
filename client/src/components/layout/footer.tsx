@@ -54,15 +54,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 shrink-0" />
-                <span>123 Innovation Dr,<br />Tech City, TC 90210</span>
+                <span>Bhive Premium whitefield campus,<br />Whitefield Bangalore -560 066</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0" />
-                <a href="mailto:hello@spotworks.com" className="hover:text-primary">hello@spotworks.com</a>
+                <a href="mailto:hello@spotworks.in" className="hover:text-primary">hello@spotworks.in</a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0" />
-                <a href="tel:+15551234567" className="hover:text-primary">+1 (555) 123-4567</a>
+                <a href="tel:+916364358900" className="hover:text-primary">+91 63643 58900</a>
               </li>
             </ul>
           </div>

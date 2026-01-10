@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useDemoDialog } from "@/contexts/demo-dialog-context";
 
 export function CTA() {
+  const { openDialog } = useDemoDialog();
+  
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-primary dark:bg-blue-950 z-0">
@@ -19,7 +22,7 @@ export function CTA() {
           Join the future of intelligent building operations. Cut costs, improve efficiency, and stay proactive with Spotworks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-blue-50 h-14 px-8 text-base rounded-full font-semibold shadow-lg">
+          <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-blue-50 h-14 px-8 text-base rounded-full font-semibold shadow-lg" onClick={openDialog}>
             Schedule a Demo
           </Button>
           <Button size="lg" className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 h-14 px-8 text-base rounded-full font-semibold">

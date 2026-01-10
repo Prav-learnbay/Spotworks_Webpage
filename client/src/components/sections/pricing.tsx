@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { useDemoDialog } from "@/contexts/demo-dialog-context";
 
 const pricingPlans = [
   {
     name: "Attendance",
     description: "Smart attendance tracking solution",
-    price: "₹3,000",
-    period: "/month",
     features: [
       "Geofencing-based check-in/check-out",
       "Biometric integration support",
@@ -21,8 +20,6 @@ const pricingPlans = [
   {
     name: "Soft Services",
     description: "Comprehensive soft services management",
-    price: "₹3,000",
-    period: "/month",
     features: [
       "QR code-based checklists",
       "Task assignment & tracking",
@@ -36,8 +33,6 @@ const pricingPlans = [
   {
     name: "Asset Management",
     description: "Complete asset lifecycle management",
-    price: "₹5,000",
-    period: "/month",
     features: [
       "Asset registry & tracking",
       "PPM scheduling",
@@ -51,8 +46,6 @@ const pricingPlans = [
   {
     name: "Complete Package",
     description: "All-in-one facility management solution",
-    price: "₹15,000",
-    period: "/month",
     features: [
       "All Attendance features",
       "All Soft Services features",
@@ -68,6 +61,8 @@ const pricingPlans = [
 ];
 
 export function Pricing() {
+  const { openDialog } = useDemoDialog();
+  
   return (
     <section id="pricing" className="py-24 bg-white dark:bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -112,14 +107,6 @@ export function Pricing() {
                 <p className="text-muted-foreground text-sm mb-4">
                   {plan.description}
                 </p>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-bold text-foreground">
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className="text-muted-foreground">{plan.period}</span>
-                  )}
-                </div>
               </div>
 
               <ul className="space-y-3 mb-8">
@@ -138,8 +125,9 @@ export function Pricing() {
                     : "variant-outline"
                 }`}
                 variant={plan.popular ? "default" : "outline"}
+                onClick={openDialog}
               >
-                Get Started
+                Get quote
               </Button>
             </motion.div>
           ))}

@@ -7,6 +7,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { About } from "@/components/sections/about";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/layout/footer";
+import { DemoBookingDialog } from "@/components/demo-booking-dialog";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <DemoBookingDialog />
     </div>
   );
 }

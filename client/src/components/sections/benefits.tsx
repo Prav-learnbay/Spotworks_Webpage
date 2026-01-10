@@ -1,3 +1,6 @@
+import problemImage from "@assets/generated_images/FMS_problem.png";
+import solutionImage from "@assets/generated_images/Spotworks_solution.png";
+
 const problems = [
   {
     title: "Chronic Equipment Downtime",
@@ -57,40 +60,43 @@ export function Benefits() {
             </span>
           </div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Top 10 High Impact Problems solved by <span className="text-primary">Spotworks</span>
+            High Value Problems solved by <span className="text-primary">Spotworks</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             The biggest operational pains we eliminate across facilities and estates.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          <div className="relative overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/20 to-transparent" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 shadow-lg overflow-hidden flex flex-col">
             <img
-              src="/benefits-problem.png"
+              src={problemImage}
               alt="Facilities grappling with operational challenges"
-              className="h-64 w-full object-cover"
+              className="w-full h-64 md:h-72 lg:h-80 object-cover"
               loading="lazy"
             />
-            <div className="absolute bottom-4 left-4 right-4 bg-black/60 text-white rounded-xl px-4 py-3 backdrop-blur">
-              <p className="text-sm font-medium uppercase tracking-wide">Problem</p>
-              <p className="text-base leading-relaxed">
+            <div className="px-6 py-5 space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-200 bg-slate-900 rounded-full inline-block px-3 py-1">
+                Problem
+              </p>
+              <p className="text-base leading-relaxed text-slate-700 dark:text-slate-200">
                 Fragmented maintenance, blind spots, and firefighting drain time, money, and focus.
               </p>
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 shadow-lg">
+          <div className="rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 shadow-lg overflow-hidden flex flex-col">
             <img
-              src="/benefits-solution.png"
+              src={solutionImage}
               alt="SpotWorks unified dashboard providing real-time facility visibility"
-              className="h-64 w-full object-cover"
+              className="w-full h-64 md:h-72 lg:h-80 object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-x-4 bottom-4 bg-white/90 dark:bg-slate-900/80 text-foreground rounded-xl px-4 py-3 backdrop-blur">
-              <p className="text-sm font-medium text-primary uppercase tracking-wide">Solution</p>
-              <p className="text-base leading-relaxed">
+            <div className="px-6 py-5 space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary bg-primary/10 rounded-full inline-block px-3 py-1">
+                Solution
+              </p>
+              <p className="text-base leading-relaxed text-slate-700 dark:text-slate-200">
                 SpotWorks unifies monitoring, automation, and workflows so teams prevent issues and act fast.
               </p>
             </div>

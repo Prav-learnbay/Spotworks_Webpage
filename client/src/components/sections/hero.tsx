@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useDemoDialog } from "@/contexts/demo-dialog-context";
 import dashboardImage from "@assets/dashboard.png";
 import bgImage from "@assets/generated_images/modern_luxury_residential_apartment_complex_in_bangalore_with_lush_greenery_and_skyline.png";
 
 export function Hero() {
+  const { openDialog } = useDemoDialog();
+  
   return (
     <section className="relative h-screen min-h-[800px] w-full overflow-hidden">
       
@@ -25,14 +28,6 @@ export function Hero() {
           
           {/* Left: Text Content */}
           <div className="space-y-8 max-w-2xl pt-20 lg:pt-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              Live System Status: Optimal
-            </div>
-            
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-xl">
               Transform your facility with <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">AI powered</span> Building management system
@@ -47,7 +42,7 @@ export function Hero() {
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-base h-14 px-8 rounded-full border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button variant="outline" size="lg" className="text-base h-14 px-8 rounded-full border-white/30 text-white hover:bg-white/10 backdrop-blur-sm" onClick={openDialog}>
                 View Demo
               </Button>
             </div>

@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
 import { SpotWorksLogo } from "./logo";
+import { useDemoDialog } from "@/contexts/demo-dialog-context";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openDialog } = useDemoDialog();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +50,7 @@ export function Navbar() {
             <a href="#about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               About
             </a>
-            <Button variant="default" className="rounded-full px-6">
+            <Button variant="default" className="rounded-full px-6" onClick={openDialog}>
               Book a Demo
             </Button>
           </div>
@@ -101,7 +103,7 @@ export function Navbar() {
           >
             About
           </a>
-          <Button className="w-full rounded-full">Book a Demo</Button>
+          <Button className="w-full rounded-full" onClick={openDialog}>Book a Demo</Button>
         </div>
       )}
     </nav>

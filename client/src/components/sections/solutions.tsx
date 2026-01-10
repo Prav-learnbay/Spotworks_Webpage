@@ -1,13 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Building, Factory, Home, ArrowRight, Hotel } from "lucide-react";
+import { Building, Factory, Home, Hotel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gatedCommunityImage from "@assets/generated_images/gated_community.png";
+import corporateOfficeImage from "@assets/generated_images/corporate_office.png";
+import industrialImage from "@assets/generated_images/Industrial.png";
+import hospitalityImage from "@assets/generated_images/Hospitalilty.png";
 
 export function Solutions() {
   return (
     <section id="solutions" className="py-24 bg-white dark:bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
+        <div className="mb-12">
           <div className="max-w-2xl">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Tailored for Every <span className="text-secondary">Facility Type</span>
@@ -16,9 +19,6 @@ export function Solutions() {
               Whether you manage a skyscraper or a factory floor, Spotworks adapts to your unique operational needs.
             </p>
           </div>
-          <Button variant="outline" className="hidden md:flex gap-2 group">
-            See all Industries <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
 
         <Tabs defaultValue="residential" className="w-full">
@@ -118,28 +118,29 @@ export function Solutions() {
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 shrink-0">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <p className="text-muted-foreground">Optimize meeting room utilization with real-time booking sensors.</p>
+                      <p className="text-muted-foreground">QR code checklists - Housekeeping, gardening and asset management.</p>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 shrink-0">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <p className="text-muted-foreground">Automate HVAC and lighting based on actual floor occupancy.</p>
+                      <p className="text-muted-foreground">HVAC optimization</p>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 shrink-0">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <p className="text-muted-foreground">Streamline visitor management and access control.</p>
+                      <p className="text-muted-foreground">Attendance monitoring & resource utilization</p>
                     </li>
                   </ul>
                   <Button className="mt-4">Explore Corporate Solutions</Button>
                 </div>
                 <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-blue-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
-                  {/* Abstract representation of office */}
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-300">
-                    <Building className="w-32 h-32 opacity-20" />
-                  </div>
+                  <img 
+                    src={corporateOfficeImage} 
+                    alt="Modern Corporate Office District" 
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium">Energy Savings</span>
@@ -180,9 +181,11 @@ export function Solutions() {
                   <Button className="mt-4 bg-orange-600 hover:bg-orange-700">Explore Industrial Solutions</Button>
                 </div>
                 <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
-                   <div className="absolute inset-0 flex items-center justify-center text-slate-300">
-                    <Factory className="w-32 h-32 opacity-20" />
-                  </div>
+                  <img 
+                    src={industrialImage} 
+                    alt="Industrial Facilities" 
+                    className="w-full h-full object-cover"
+                  />
                    <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium">Downtime Reduced</span>
@@ -223,9 +226,11 @@ export function Solutions() {
                   <Button className="mt-4 bg-purple-600 hover:bg-purple-700">Explore Hospitality Solutions</Button>
                 </div>
                 <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-purple-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
-                   <div className="absolute inset-0 flex items-center justify-center text-slate-300">
-                    <Hotel className="w-32 h-32 opacity-20" />
-                  </div>
+                  <img 
+                    src={hospitalityImage} 
+                    alt="Hospitality" 
+                    className="w-full h-full object-cover"
+                  />
                    <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-4 rounded-xl shadow-sm">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium">Guest Satisfaction</span>
