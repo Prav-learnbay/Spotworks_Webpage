@@ -21,22 +21,51 @@ export function DemoBookingDialog() {
     facilityType: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // You can add API call here
-    alert("Demo request submitted successfully! We'll contact you soon.");
-    closeDialog();
-    // Reset form
-    setFormData({
-      name: "",
-      mobile: "",
-      email: "",
-      demoDate: undefined,
-      demoTime: "",
-      facilityType: "",
-    });
+    
+    if (!formData.demoDate) {
+      alert("Please select a demo date");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/demo-booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          mobile: formData.mobile,
+          email: formData.email,
+          facilityType: formData.facilityType,
+          demoDate: formData.demoDate.toISOString(),
+          demoTime: formData.demoTime,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Demo request submitted successfully! We'll contact you soon.");
+        closeDialog();
+        // Reset form
+        setFormData({
+          name: "",
+          mobile: "",
+          email: "",
+          demoDate: undefined,
+          demoTime: "",
+          facilityType: "",
+        });
+      } else {
+        alert(`Error: ${data.error || "Failed to submit demo request"}`);
+      }
+    } catch (error) {
+      console.error("Error submitting demo booking:", error);
+      alert("Failed to submit demo request. Please try again.");
+    }
   };
 
   const handleInputChange = (field: string, value: string | Date | undefined) => {
