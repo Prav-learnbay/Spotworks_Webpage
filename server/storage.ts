@@ -1,4 +1,13 @@
-import { type User, type InsertUser, type DemoBooking, type InsertDemoBooking } from "@shared/schema";
+import {
+  type User,
+  type InsertUser,
+  type DemoBooking,
+  type InsertDemoBooking,
+  users,
+  demoBookings,
+} from "@shared/schema";
+import { eq } from "drizzle-orm";
+import { db } from "./db";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -59,4 +68,44 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export class DatabaseStorage implements IStorage {
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.username, username));
+    return user;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db.insert(users).values(insertUser).returning();
+    return user;
+  }
+
+  async createDemoBooking(booking: InsertDemoBooking): Promise<DemoBooking> {
+    const [demoBooking] = await db
+      .insert(demoBookings)
+      .values(booking)
+      .returning();
+    return demoBooking;
+  }
+
+  async getDemoBooking(id: string): Promise<DemoBooking | undefined> {
+    const [booking] = await db
+      .select()
+      .from(demoBookings)
+      .where(eq(demoBookings.id, id));
+    return booking;
+  }
+
+  async getAllDemoBookings(): Promise<DemoBooking[]> {
+    return db.select().from(demoBookings);
+  }
+}
+
+export const storage = new DatabaseStorage();
