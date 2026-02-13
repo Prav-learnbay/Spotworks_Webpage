@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useDemoDialog } from "@/contexts/demo-dialog-context";
-import dashboardImage from "@assets/dashboard.png";
+import dashboardImage from "@assets/Dashboard.png";
 import bgImage from "@assets/generated_images/modern_luxury_residential_apartment_complex_in_bangalore_with_lush_greenery_and_skyline.png";
 
 export function Hero() {
