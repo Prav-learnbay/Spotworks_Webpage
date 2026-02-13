@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertDemoBookingSchema } from "@shared/schema";
+import { sendBookingNotificationEmail } from "./email";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -16,11 +17,16 @@ export async function registerRoutes(
   // Demo booking routes
   app.post("/api/demo-booking", async (req, res) => {
     try {
-      const validatedData = insertDemoBookingSchema.parse(req.body);
+      const body = {
+        ...req.body,
+        demoDate: req.body.demoDate ? new Date(req.body.demoDate) : undefined,
+      };
+      const validatedData = insertDemoBookingSchema.parse(body);
       const booking = await storage.createDemoBooking(validatedData);
+      sendBookingNotificationEmail(booking);
       res.status(201).json({ success: true, booking });
     } catch (error) {
-      console.error("Error creating demo booking:", error);
+      console.error("Error creating demo booking:", error instanceof Error ? error.message : String(error));
       if (error instanceof Error) {
         res.status(400).json({ success: false, error: error.message });
       } else {
